@@ -3,36 +3,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#111827">
-
     <title>Remote Shutdown</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="container">
         <div class="icon">⌁</div>
-
         <h1>Remote Shutdown</h1>
         <p class="subtitle">Control your laptop from anywhere.</p>
 
-        <div class="status-card">
-            <span class="status-dot"></span>
-            <div>
-                <strong>My Laptop</strong>
-                <p id="status">Connection status not checked</p>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="username"
+                   placeholder="Your email" required>
+
+            <label for="password">Password</label>
+            <input id="password" type="password"
+                   autocomplete="current-password"
+                   placeholder="Your password" required>
+
+            <button type="submit">Sign In</button>
+            <p id="loginMessage" role="status"></p>
+        </form>
+
+        <section id="dashboard" hidden>
+            <div class="status-card">
+                <span class="status-dot"></span>
+                <div>
+                    <strong>My Laptop</strong>
+                    <p id="status">Cloud connected; laptop status unknown</p>
+                </div>
             </div>
-        </div>
 
-        <button id="shutdownBtn">
-            Shut Down Laptop
-        </button>
+            <button id="shutdownBtn" type="button">
+                Shut Down Laptop
+            </button>
 
-        <p class="note">
-            Make sure you have saved all your work.
-        </p>
+            <p class="note">
+                Save your work before shutting down.
+            </p>
+
+            <p id="commandMessage" role="status"></p>
+            <button id="logoutBtn" type="button"
+                    style="margin-top: 12px; background: #374151;">
+                Sign Out
+            </button>
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
