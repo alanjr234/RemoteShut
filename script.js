@@ -90,7 +90,8 @@ shutdownBtn.addEventListener("click", async () => {
             action: "shutdown",
             targetDeviceId: "my-windows-laptop",
             status: "pending",
-            createdAt: serverTimestamp()
+            createdAt: serverTimestamp(),
+            expireAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
         });
 
         commandMessage.textContent =
